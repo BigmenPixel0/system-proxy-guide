@@ -1,1 +1,1 @@
-# system-proxy-guide
+# How to route all traffic through a proxy
