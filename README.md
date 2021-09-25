@@ -13,8 +13,6 @@ cd redsocks/
 makepkg -sric
 ```
 
-It is assumed that you already have a local socks5 / http proxy configured. Most likely, this will not work with TOR, because we need to add the IP address of the server to which you want to conduct traffic to the exception, it is impossible to add all the input nodes.
-
 Next, we need to change the redsocks config and bring it to this form:
 ```
 base {
@@ -57,13 +55,13 @@ sudo firewall-cmd --direct --add-rule ipv4 nat REDSOCKS 0 -d 192.168.0.0/16 -j R
 sudo firewall-cmd --direct --add-rule ipv4 nat REDSOCKS 0 -d 224.0.0.0/4 -j RETURN
 sudo firewall-cmd --direct --add-rule ipv4 nat REDSOCKS 0 -d 240.0.0.0/4 -j RETURN
 
-sudo firewall-cmd --direct --add-rule ipv4 nat REDSOCKS 0 -d 123.123.123.123/32 -j RETURN
+sudo firewall-cmd --direct --add-rule ipv4 nat OUTPUT 0 -p tcp -m owner --uid-owner "UID_OF_USER_WHICH_RUN_PROXY_CLIENT" -j RETURN
 
 sudo firewall-cmd --direct --add-rule ipv4 nat REDSOCKS 0 -p tcp -j REDIRECT --to-ports 1081
 
 sudo firewall-cmd --direct --add-rule ipv4 nat OUTPUT 0 -p tcp -j REDSOCKS
 ```
-Instead of 123.123.123.123, write the IP address of the **proxy server** without changing the port.
+For example, instead of "UID_OF_USER_WHICH_RUN_PROXY_CLIENT" I wrote 1004 - shadowsocks user uid
 Now try curl ifconfig.me. If that worked, run:
 ```
 sudo firewall-cmd --runtime-to-permanent
