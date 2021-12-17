@@ -61,8 +61,9 @@ sudo firewall-cmd --direct --add-rule ipv4 nat REDSOCKS 0 -p tcp -j REDIRECT --t
 
 sudo firewall-cmd --direct --add-rule ipv4 nat OUTPUT 0 -p tcp -j REDSOCKS
 ```
-For example, instead of "UID_OF_USER_WHICH_RUN_PROXY_CLIENT" I wrote 84 - shadowsocks user uid
-Now try curl ifconfig.me. If that worked, run:
+For example, instead of "UID_OF_USER_WHICH_RUN_PROXY_CLIENT" I wrote 84 - shadowsocks uid. 
+
+Now try `curl ifconfig.me`. If that worked, run:
 ```
 sudo firewall-cmd --runtime-to-permanent
 ```
