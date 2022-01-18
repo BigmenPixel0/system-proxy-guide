@@ -1,5 +1,10 @@
 # How to route all traffic through a proxy
 
+## Method 1
+Use [socksify-me](https://github.com/BigmenPixel0/socksify-me)
+
+## Method 2 (deprecated)
+
 **Attention! Everything has been tested only on the ArchLinux distribution! It is possible that the commands will be different.**
 
 First, we need to supply some packages:
