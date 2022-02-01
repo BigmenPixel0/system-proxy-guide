@@ -1,7 +1,7 @@
 # How to route all traffic through a proxy
 
 ## Method 1
-Use [socksify-me](https://github.com/BigmenPixel0/socksify-me)
+Use [socksify-me](https://github.com/BigmenPixel0/socksify-me).
 
 ## Method 2 (deprecated)
 
